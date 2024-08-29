@@ -1,5 +1,5 @@
 @extends('layouts.applogin')
-  <!-- @title('Login')-->
+   <!--@title('Login') -->
 
 @section('content')
 
@@ -43,14 +43,7 @@
             </div>
           </div>
         </div>
-        
-      </form>
-
-      
-      <!-- /.social-auth-links -->
-
-    </div>
-            <div class="row">
+        <div class="row">
                 <div class="col-6">
                     <button type="submit" class="btn btn-primary btn-block">{{ __('Login') }}</button>
                 </div>
@@ -67,6 +60,13 @@
                     </p>
                 </div>
             </div>
+      </form>
+
+      
+      <!-- /.social-auth-links -->
+
+    </div>
+            
     <!-- /.login-card-body -->
   </div>
 </div>
