@@ -13,7 +13,7 @@
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        <<div class="input-group mb-3">
+                    <div class="input-group mb-3">
             <input id="email" type="email" placeholder="Correo Electrónico" class="form-control  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                         @error('email')
@@ -21,7 +21,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-            <div class="input-group-append">
+             <div class="input-group-append"> 
                 <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
                 </div>
@@ -36,16 +36,18 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        <div class="input-group-append">
+                
+                        
+                         <div class="input-group-append">
                             <div class="input-group-text">
                             <span class="fas fa-lock"></span>
                             </div>
-                        </div>
+                        </div> 
         </div>
         <div class="input-group mb-3">
                         <input id="password-confirm" type="password" placeholder="Confirmar Contraseña" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                             
-                        <div class="input-group-append">
+                        <div class="input-group-append"> 
                             <div class="input-group-text">
                             <span class="fas fa-lock"></span>
                             </div>

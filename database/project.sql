@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-08-2024 a las 08:09:51
+-- Tiempo de generación: 12-09-2024 a las 18:21:43
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -32,6 +32,14 @@ CREATE TABLE `cache` (
   `value` mediumtext NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `cache`
+--
+
+INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
+('ballesteroskeiner6@gmail.com|127.0.0.1', 'i:1;', 1725071870),
+('ballesteroskeiner6@gmail.com|127.0.0.1:timer', 'i:1725071870;', 1725071870);
 
 -- --------------------------------------------------------
 
@@ -115,7 +123,8 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '0001_01_01_000000_create_users_table', 1),
 (2, '0001_01_01_000001_create_cache_table', 1),
-(3, '0001_01_01_000002_create_jobs_table', 1);
+(3, '0001_01_01_000002_create_jobs_table', 1),
+(4, '2024_09_05_194252_create_servicies_table', 2);
 
 -- --------------------------------------------------------
 
@@ -129,12 +138,22 @@ CREATE TABLE `password_reset_tokens` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Volcado de datos para la tabla `password_reset_tokens`
+-- Estructura de tabla para la tabla `servicies`
 --
 
-INSERT INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
-('ballesteroskeiner1@gmail.com', '$2y$12$.sXSuOUpgq7Pd1xnRqGYt.uSqj.8BmiDT7bcbmVRaImmFbAo.Boge', '2024-08-28 09:42:57');
+CREATE TABLE `servicies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` text NOT NULL,
+  `estado` varchar(255) NOT NULL,
+  `imagen` varchar(255) NOT NULL,
+  `registradoPor` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -156,8 +175,12 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('GBf5gz0hdAA7wEAArjmYqh0o4CAnlUBHBUEJWkFH', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNWEwRDJ1N3FNejlLR2NZcHZvOFZPRnJSVzRrMEtTajk3eHRqVWhRYyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fX0=', 1724820600),
-('jfmWkgd0FambUe7Krni0WKnyZFOMe1cUUzYlOjzy', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoidk9nam81cjhCNWY3M2NrQlZpR3hNTzRoR0hMQzBRZmZ4NjloM2dlRSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9ob21lIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1724471352);
+('6mXwsD0k2zzsSNawxVUeiaIhDCAdYJdWuCwNUko2', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiellnQ2d5UTY2a21KUGNaVGkxNWgwVWxzS0Yzd1EyeEdGZTg0cnkydiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjA6Imh0dHA6Ly9wcm9qZWN0LmxvY2FsIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1725571330),
+('EthkSg02v8xJRTa94sJdhEjN75WTF65y0kXdVGdz', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZkd1OEdqeXUzQmdqZEVWQXpVWExjUVo2RWpMeWNGdWlPNW5zYlljSiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjA6Imh0dHA6Ly9leGFtcGxlLmxvY2FsIjt9fQ==', 1725842371),
+('jYKmnKSFNGoMjmrbjG6LtU5ARlqhXNenZdtW3Xig', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiZm9wcDBBNGVCdkJrZllzdEZWYVBKSnU5ZlNjMHZ0TU51UkFpeWVvaCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1725571330),
+('p8g7fFgoV8i4MSew6iCmJASB9O7PF7kyYznrXpou', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUEdXcWRyRWo0SXR1Q01ldUtyZVE0Wk5sWDlwRlNON3RZcTRrVmJTMyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1725571569),
+('shVN1ILFi7l78KV5XzUlNJ69LvtnlKqfEN5n5Itk', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZDRzYjJPdzV6eDMzYzhBYUFnRjRkaGtmZUV5Nmt1d05yRW1UaTZkNiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9wb3N0cyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1725504944),
+('TgIxBvRXhmC5lsoox0CXCmNCiEjP0k2mEKAM1Krz', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibWlMU0tEcENKU3BjaHBxZ3FMWW54SloxMGVheFQxclBIc3NHcWVtQiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9leGFtcGxlLmxvY2FsL3Bvc3RzL2xhcmF2ZWwiO319', 1725511327);
 
 -- --------------------------------------------------------
 
@@ -182,7 +205,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Keiner', 'kballesterosm@ufpso.edu.co', NULL, '$2y$12$PuVlXGoQBCr5/uz7LV9yI.D386tvd.33jCqdcIo7iioOS1SCX1R5m', NULL, '2024-08-24 08:44:58', '2024-08-24 08:44:58'),
-(2, 'Keiner Ballesteros', 'ballesteroskeiner1@gmail.com', NULL, '$2y$12$nsimpjomCaKCa6t0itljMu7PRjuEv3uN.mMb40IeWQ/KlZpCosEyu', NULL, '2024-08-24 08:49:12', '2024-08-24 08:49:12'),
+(2, 'Keiner Ballesteros', 'ballesteroskeiner1@gmail.com', NULL, '$2y$12$UzWtBT3AV7Sr6xOe9Oa1eufw79BZArojuuxeBoVjYaUSV5bkoZc5O', '8Of6wjcQLpnzLAy9HAyIKWTduuf0P0jlGWmQ50wmGmuKkeiJnmOoKomGznDX', '2024-08-24 08:49:12', '2024-08-31 07:47:43'),
 (3, 'Keiner', 'ballesteroskeiner6@gmail.com', NULL, '$2y$12$9TpaNPPTRpJyfpxmbH0ZwuuMMzOFQTzuGH2lFK/7paz2eP.YclxtW', NULL, '2024-08-28 09:49:30', '2024-08-28 09:49:30');
 
 --
@@ -234,6 +257,12 @@ ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
 
 --
+-- Indices de la tabla `servicies`
+--
+ALTER TABLE `servicies`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `sessions`
 --
 ALTER TABLE `sessions`
@@ -268,7 +297,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `servicies`
+--
+ALTER TABLE `servicies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
