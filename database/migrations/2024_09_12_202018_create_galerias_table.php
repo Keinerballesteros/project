@@ -16,11 +16,11 @@ return new class extends Migration
             $table->bigInteger('categoria_id')->unsigned();
             $table->foreign('categoria_id')
                 ->references('id')->on('categories');
-            $table->timestamps();
             $table->string('titulo');
             $table->string('imagen');
             $table->string('estado');
             $table->string('registradoPor');
+            $table->timestamps();
         });
     }
 
