@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\odel=Categories>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Categoria>
  */
-class CategoriesfactoryFactory extends Factory
+class CategoriaFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,11 @@ class CategoriesfactoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->faker->text(),
-            'titulo' => $this->faker->sentence(),
+            'nombre' => $this->faker->name,
             'estado' => "1",
             'registradoPor' => \App\Models\User::factory(),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

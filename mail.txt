@@ -8,6 +8,15 @@ MAIL_FROM_ADDRESS="kballesterosm@ufpso.edu.co"
 MAIL_FROM_NAME="${APP_NAME}"
 
 
+return [
+            'id' => $this->faker->text(),
+            'nombre' => $this->faker->text(),
+            'estado' => "1",
+            'registradoPor' => \App\Models\User::factory(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
+
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306

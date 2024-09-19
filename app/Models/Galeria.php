@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Galeria extends Model
 {
     use HasFactory;
-    protected $fillable = ['titulo','descripcion' , 'id', 'categoria_id','imagen'];
+    protected $fillable = ['titulo','descripcion' ,'categoria_id','imagen','estado','registradoPor'];
     protected $guarded = [
-        'estado','registradopor',
+        'estado','registradoPor',
     ];
 
 
 
 public function categoria()
 {
-    return $this->hasMany('App\Models\Categoria', 'categoria_id');
+    return $this->belongsTo('App\Models\Categoria');
 }
 }

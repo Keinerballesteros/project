@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\odel=Galeria>
  */
-class GaleriafactoryFactory extends Factory
+class GaleriaFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,19 +17,18 @@ class GaleriafactoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->faker->text(),
-            'categoria_id' => $this->faker->numberBetween(1, 10),
-            'titulo' => $this->faker->sentence(),
-            'descripcion' => $this->faker->text(),
+            'categoria_id' => \App\Models\Categoria::factory(),
+            'titulo' => $this->faker->title,
+            'descripcion' => $this->faker->text,
             'imagen' =>$this -> randomImage(),
             'estado' => "1",
             'registradoPor' => \App\Models\User::factory(),
-
-            
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
     function randomImage(): string
     {
-    return "public/" . rand(1, max: 15) . ".jpg";
+    return "imagen" . rand(1, max: 15) . ".jpg";
     }
 }

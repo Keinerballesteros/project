@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     use HasFactory;
-    protected $fillable = ['titulo', 'id' ];
-    protected $guarded = ['estado','registradopor'];
+    protected $fillable = ['nombre', 'estado','registradoPor' ];
+    protected $guarded = ['estado','registradoPor'];
     
 
     public function galerias()
     {
-        return $this->belongsTo('App\Models\Categoria');
+        return $this->hasMany('App\Models\Galeria', 'categoria_id');
     }
 
 }
