@@ -9,9 +9,7 @@ class Categoria extends Model
 {
     use HasFactory;
     protected $fillable = ['titulo', 'id' ];
-    protected $guarded = [
-        'estado','registradopor',
-    ];
+    protected $guarded = ['estado','registradopor'];
     
 
     public function galerias()

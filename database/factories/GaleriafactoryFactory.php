@@ -17,11 +17,11 @@ class GaleriafactoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->fake()->text(),
-            'categoria_id' => $this->fake()->numberBetween(1, 10),
-            'titulo' => $this->fake()->sentence(),
-            'descripcion' => $this->fake()->text(),
-            'imagen' => randomImage(),
+            'id' => $this->faker->text(),
+            'categoria_id' => $this->faker->numberBetween(1, 10),
+            'titulo' => $this->faker->sentence(),
+            'descripcion' => $this->faker->text(),
+            'imagen' =>$this -> randomImage(),
             'estado' => "1",
             'registradoPor' => \App\Models\User::factory(),
 
@@ -30,6 +30,6 @@ class GaleriafactoryFactory extends Factory
     }
     function randomImage(): string
     {
-    return "dummyImage/" . rand(1, 15) . ".jpg";
+    return "public/" . rand(1, max: 15) . ".jpg";
     }
 }

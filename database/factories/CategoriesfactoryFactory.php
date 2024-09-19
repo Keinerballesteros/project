@@ -17,8 +17,8 @@ class CategoriesfactoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->fake()->text(),
-            'titulo' => $this->fake()->sentence(),
+            'id' => $this->faker->text(),
+            'titulo' => $this->faker->sentence(),
             'estado' => "1",
             'registradoPor' => \App\Models\User::factory(),
         ];
