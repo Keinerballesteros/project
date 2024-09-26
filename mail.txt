@@ -73,3 +73,16 @@ Galerías
     {
         Schema::dropIfExists('galerias');
     }
+
+
+
+    tomar el index.html de admin lte eb app.blade.php
+
+    css
+    <body>
+    @include('layouts.partial.topbar'); //header
+     @include('layouts.partial.sidebar'); //menu
+      @include('layouts.partial.footer'); //pie
+      @yield('layouts.content');
+    </body>
+
