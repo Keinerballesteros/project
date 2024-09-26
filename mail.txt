@@ -25,10 +25,16 @@ DB_USERNAME=root
 DB_PASSWORD=
 
 Categoria
+            public function up(): void
+    {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('estado');
             $table->string('registradoPor');
+            $table->timestamps();
+        });
+    }
 
 Galerías
 

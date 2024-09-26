@@ -10,7 +10,7 @@
   <div class="card ">
     <div class="card-body login-card-body border-2 rounded-3">
         <div class="login-logo">
-            <a href="../../index.php"><b>Log In</b></a>
+            <a href="../../index.php"><b>{{( 'Log In' )}}</b></a>
         </div>
 
       <form method="POST" action="{{ route('login') }}">

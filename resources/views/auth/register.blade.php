@@ -73,7 +73,7 @@
         </div>
         <div class="row">
                         <div class="col-4">
-                            <button type="submit" class="btn btn-outline-danger btn-block fw-bold">{{ __('Register') }}</button>
+                            <button type="submit"  class="btn btn-outline-danger btn-block fw-bold">{{ __('Register') }}</button>
                         </div>
                         <div class="col-8">
                             <a href="{{ route('login') }}"
