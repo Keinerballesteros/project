@@ -17,7 +17,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-Route::get('/user/{id}', function ($id) {
+/*Route::get('/user/{id}', function ($id) {
  return 'ID de usuario: ' . $id;
 })->where('id', '[0-9]{1,3}');
 
@@ -39,3 +39,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/categoria', [CategoriasController::class, 'categoria']);
     Route::get('/galeria', [CategoriasController::class, 'galeria']);
     });
+    */
