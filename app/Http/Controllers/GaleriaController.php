@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Galeria;
 
-class GaleriasController extends Controller
+class GaleriaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $galerias = Galeria::all();
+        return view('galerias.index', compact('galerias'));
     }
+
 
     /**
      * Show the form for creating a new resource.
