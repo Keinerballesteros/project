@@ -63,4 +63,23 @@ class CategoriaController extends Controller
     {
         //
     }
+    public function cambioestadocategoria(Request $request)
+    {
+        try {
+            $estado = $request->input('estado'); // 1 o 0
+            $id = $request->input('id'); // ID del elemento
+    
+            // Realiza la lógica para cambiar el estado (e.g., actualizar en la base de datos)
+            $categoria = Filosofia::find($id);
+            if ($categoria) {
+                $categoria->estado = $estado;
+                $categoria->save();
+                return response()->json(['success' => true, 'message' => 'Estado actualizado correctamente']);
+            } else {
+                return response()->json(['success' => false, 'message' => 'Elemento no encontrado']);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => 'Error al cambiar el estado', 'error' => $e->getMessage()]);
+        }
+    }
 }

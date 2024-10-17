@@ -28,6 +28,8 @@
       <link rel="stylesheet" href="{{ asset('backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
       <link rel="stylesheet" href="{{ asset('backend/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.css">
+
       @stack('css')
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
@@ -72,8 +74,8 @@
 
     <!-- AdminLTE -->
     <script src="{{asset('backend/dist/js/adminlte.js')}}"></script>
-    <!-- AdminLTE para demo -->
-    <script src="{{asset('backend/dist/js/demo.js')}}"></script>
+    <!-- AdminLTE para demo 
+    <script src="{{asset('backend/dist/js/demo.js')}}"></script>-->
     <!-- AdminLTE Dashboard (solo para demostraciones) -->
     <script src="{{asset('backend/dist/js/pages/dashboard.js')}}"></script>
 
@@ -93,5 +95,11 @@
 
     <!-- Table Custom JS -->
     <script src="{{asset('backend/dist/js/table.js')}}"></script>
+
+    <!-- Status Change JS -->
+    <script src="{{asset('backend/dist/js/statuschange.js')}}"></script>
+
+    <!-- Toggle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.js"></script>
     @stack('scripts')
   </html>
