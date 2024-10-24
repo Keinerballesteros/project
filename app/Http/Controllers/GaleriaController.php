@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Galeria;
+use App\Models\Categoria;
+use Carbon\Carbon;
+use Iluminate\Support\Str;
 
 class GaleriaController extends Controller
 {
@@ -22,7 +25,9 @@ class GaleriaController extends Controller
      */
     public function create()
     {
-        return view('galerias.create');
+
+        $categorias = Categoria::all();
+        return view('galerias.create', compact('categorias'));
     }
 
     /**
@@ -31,6 +36,22 @@ class GaleriaController extends Controller
     public function store(Request $request)
     {
         $galeria = Galeria::create($request->all());
+
+        $image = $request->file('image');
+			$slug = Str::slug($request->nombre);
+			if (isset($image))
+			{
+				$currentDate = Carbon::now()->toDateString();
+				$imagename = $slug.'-'.$currentDate.'-'. uniqid() .'.'. $image->getClientOriginalExtension();
+
+				if (!file_exists('uploads/personas/estudiantes'))
+				{
+					mkdir('uploads/personas/estudiantes',0777,true);
+				}
+				$image->move('uploads/personas/estudiantes',$imagename);
+			}else{
+				$imagename = "";
+			}
 		return redirect()->route('galerias.index')->with('successMsg','El registro se guardó exitosamente');
     }
 

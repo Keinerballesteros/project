@@ -24,12 +24,12 @@
 									<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
 										<div class="form-group label-floating">
 											<label class="control-label">Nombre Categoria<strong style="color:red;">(*)</strong></label>
-											<input type="text" class="form-control" name="nombre" placeholder="Por ejemplo, Normal" autocomplete="off" value="{{ old('nombre') }}">
+											<input type="text" class="form-control" name="nombre" placeholder="Nombre ..." autocomplete="off" value="{{ old('nombre') }}">
 										</div>
 									</div>
 								</div>
 								<input type="hidden" class="form-control" name="estado" value="1">
-								<input type="hidden" class="form-control" name="registradopor" value="{{ Auth::user()->id }}">
+								<input type="hidden" class="form-control" name="registradoPor" value="{{ Auth::user()->id }}">
 							</div>
 							<div class="card-footer">
 								<div class="row">

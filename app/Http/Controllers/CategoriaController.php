@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Request\CategoriaRequest;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 
@@ -30,7 +30,7 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $categorias = Categoria::create($request->all());
-		return redirect()->route('categorias.index')->with('successMsg','El registro se guardó exitosamente');
+		return redirect()->route('categorias.index')->with('successMsg','La categoria se guardó exitosamente');
     }
 
     /**

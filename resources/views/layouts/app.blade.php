@@ -114,7 +114,7 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="{{asset('backend/dist/js/table.js')}}"></script>
 <script src="{{asset('backend/dist/js/statuschange.js')}}"></script>
 <!-- Select2 -->
-<script src="{{asset('backend/plugins/select2/js/select2.full.min.js')}}"></script>
+<script src="{{asset('backend/plugins/select2/js/select2.full..js')}}"></script>
 <!-- Selectors -->
 <script src="{{asset('backend/dist/js/selectors.js')}}"></script>
 </html>

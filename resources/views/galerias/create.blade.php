@@ -24,31 +24,20 @@
 									<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
 										<div class="form-group label-floating">
 											<label class="control-label">Titulo de Galeria<strong style="color:red;">(*)</strong></label>
-											<input type="text" class="form-control" name="nombre" placeholder="Por ejemplo, Galeria" autocomplete="off" value="{{ old('nombre') }}">
-										</div>
-									</div>
-								</div>
-								<input type="hidden" class="form-control" name="estado" value="1">
-								<input type="hidden" class="form-control" name="registradopor" value="{{ Auth::user()->id }}">
-							</div>
-                            <div class="card-body">
-								<div class="row">
-									<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-										<div class="form-group label-floating">
-											<label class="control-label">Imagen<strong style="color:red;">(*)</strong></label>
-											<input type="file" class="form-control" name="nombre" placeholder="Por ejemplo, Galeria" autocomplete="off" value="{{ old('nombre') }}">
-										</div>
-									</div>
-								</div>
-								<input type="hidden" class="form-control" name="estado" value="1">
-								<input type="hidden" class="form-control" name="registradopor" value="{{ Auth::user()->id }}">
-							</div>
-                            <div class="card-body">
-								<div class="row">
-									<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-										<div class="form-group label-floating">
+											<input type="text" class="form-control" name="titulo" placeholder="Por ejemplo, Galeria" autocomplete="off" value="{{ old('nombre') }}">
 											<label class="control-label">Descripción<strong style="color:red;">(*)</strong></label>
-											<input type="text" class="form-control" name="nombre" placeholder="Por ejemplo, Galeria" autocomplete="off" value="{{ old('nombre') }}">
+											<input type="text" class="form-control" name="descripcion" placeholder="Por ejemplo, Galeria" autocomplete="off" value="{{ old('nombre') }}">
+											<label class="control-label">Imagen<strong style="color:red;">(*)</strong></label>
+											<input type="file" class="form-control" name="imagen" placeholder="Por ejemplo, Galeria" autocomplete="off" value="{{ old('nombre') }}">
+											<label class="control-label">Categoria<strong style="color:red;">(*)</strong></label>
+											<select name="categoria-id" id="#">
+												<option value="#">Seleccione la Categoria</option>
+												@foreach($categorias as $categoria)
+												<option value="{{ $categoria->id }}">{{$categoria->nombre}}</option>
+												@endforeach
+											</select>
+											
+										</div>
 										</div>
 									</div>
 								</div>
