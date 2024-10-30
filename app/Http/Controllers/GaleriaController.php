@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\GaleriaRequest;
 use App\Models\Galeria;
 use App\Models\Categoria;
+use Illuminate\Database\QueryException;
+use Exception;
+use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
-use Iluminate\Support\Str;
+use Illuminate\Support\Str;
 
 class GaleriaController extends Controller
 {
@@ -19,40 +23,48 @@ class GaleriaController extends Controller
         return view('galerias.index', compact('galerias'));
     }
 
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-
-        $categorias = Categoria::all();
+        $categorias = Categoria::all(); // Obtén todas las categorías
         return view('galerias.create', compact('categorias'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(GaleriaRequest $request)
     {
         $galeria = Galeria::create($request->all());
 
-        $image = $request->file('image');
-			$slug = Str::slug($request->nombre);
-			if (isset($image))
-			{
-				$currentDate = Carbon::now()->toDateString();
-				$imagename = $slug.'-'.$currentDate.'-'. uniqid() .'.'. $image->getClientOriginalExtension();
+        $imagen = $request->file('imagen');
+        $slug = Str::slug($request->titulo); // Asegúrate de usar el campo correcto
+        $imagenname = "";
 
-				if (!file_exists('uploads/personas/estudiantes'))
-				{
-					mkdir('uploads/personas/estudiantes',0777,true);
-				}
-				$image->move('uploads/personas/estudiantes',$imagename);
-			}else{
-				$imagename = "";
-			}
-		return redirect()->route('galerias.index')->with('successMsg','El registro se guardó exitosamente');
+        if (isset($imagen)) {
+            $currentDate = Carbon::now()->toDateString();
+            $imagenname = $slug . '-' . $currentDate . '-' . uniqid() . '.' . $imagen->getClientOriginalExtension();
+
+            // Ruta donde se guardará la imagen
+            $uploadPath = 'uploads/galerias';
+
+            // Crear la carpeta si no existe
+            if (!file_exists($uploadPath)) {
+                mkdir($uploadPath, 0777, true);
+            }
+
+            // Mover la imagen a la carpeta creada
+            $imagen->move($uploadPath, $imagenname);
+        }
+
+        // Guardar el nombre de la imagen en la base de datos o en la galería
+        // $galeria->imagen = $imagenname; // Asegúrate de agregar esto si es necesario
+        // $galeria->save();
+
+        return redirect()->route('galerias.index')->with('successMsg', 'El registro se guardó exitosamente');
+
     }
 
     /**
@@ -86,14 +98,15 @@ class GaleriaController extends Controller
     {
         //
     }
+
     public function cambioestadogaleria(Request $request)
-    {
-        try {
+	{
+		try {
             $estado = $request->input('estado'); // 1 o 0
             $id = $request->input('id'); // ID del elemento
     
             // Realiza la lógica para cambiar el estado (e.g., actualizar en la base de datos)
-            $galeria = Filosofia::find($id);
+            $galeria = Galeria::find($id);
             if ($galeria) {
                 $galeria->estado = $estado;
                 $galeria->save();
@@ -104,5 +117,5 @@ class GaleriaController extends Controller
         } catch (\Exception $e) {
             return response()->json(['success' => false, 'message' => 'Error al cambiar el estado', 'error' => $e->getMessage()]);
         }
-    }
+	}
 }

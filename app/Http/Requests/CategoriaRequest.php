@@ -25,14 +25,15 @@ class CategoriaRequest extends FormRequest
             if(request()->isMethod('post')){
                 return [
                     'titulo' => 'required|unique:categorias,nombre|regex:/^[\pL\s\-]+$/u',
-                    
-                    
                 ];	
             } elseif(request()->isMethod('put')){
                 return [
                     'titulo' => 'required|regex:/^[\pL\s\-]+$/u|unique:categorias,nombre,' . $this->route('categorias')
                 ];
+            }else{
+                return [];
             }
+            
             }
     }
 
